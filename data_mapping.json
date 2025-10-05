@@ -1,0 +1,29 @@
+{
+  "SMS_INTERFACE_MAP": {
+    "CORE_VERSION": "V19.0",
+    "UNITS_OF_MEASUREMENT": {
+      "Mass_Analogue": "Inductance (L)",
+      "Energy_Output": "Structural Energy Units (SEU)",
+      "Motion_Basis": "Quaternion (4D)"
+    },
+    "REALTIME_DATA_STREAM": {
+      "DISPLACEMENT_VECTOR": {
+        "SOURCE_KEY": "A_B_C_DISPLACEMENT",
+        "VISUAL_MAPPING": "Sets the 3D scale and geometry of the particle/planet mesh. (A=X-Scale, B=Y-Scale, C=Z-Scale)."
+      },
+      "FIELD_MAGNITUDE": {
+        "SOURCE_KEY": "QUAT_MAGNITUDE",
+        "VISUAL_MAPPING": "Renders the intensity and density of the surrounding magnetic field/gravitational flux. (FTL readiness)."
+      },
+      "STRUCTURAL_PREDICTION": {
+        "SOURCE_KEY": "PREDICTED_SEU",
+        "VISUAL_MAPPING": "Displayed as the objective score (Reward Signal). The AI learns to maximize this value for stability."
+      }
+    },
+    "RL_REWARD_SIGNAL_RULES": {
+      "REWARD_MAX_SYMMETRY": "Maximize stability: Target A=B=C in final state.",
+      "PENALTY_DIMENSIONAL_SHIFT": "Severe penalty if Quaternion Magnitude > 10.0 occurs unexpectedly (FTL Chaos).",
+      "CORE_GOAL": "The AI must learn the correct K-factor proportionality to bring the SEU prediction down to the actual observed reality."
+    }
+  }
+}
